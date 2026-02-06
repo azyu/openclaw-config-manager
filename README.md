@@ -1,9 +1,10 @@
 # OpenClaw Config Manager
 
-macOS native app for managing OpenClaw AI model configuration.
+macOS MenuBar app for managing OpenClaw AI model configuration.
 
 ## Features
 
+- **MenuBar App** - Lives in the menu bar with a lobster icon 🦞
 - **Primary Model Selection** - Choose your default AI model from a dropdown
 - **Fallback Models** - Add, remove, and reorder fallback models
 - **JSON5 Support** - Reads JSON5 config files (comments, trailing commas)
@@ -50,13 +51,18 @@ open ./build/Build/Products/Release/OpenClawConfigManager.app
 
 ## Usage
 
-The app reads and writes to `~/.openclaw/openclaw.json`.
+The app runs as a **MenuBar app** - look for the 🦞 lobster icon in your menu bar (no Dock icon).
+
+Click the lobster icon to open the configuration panel:
 
 1. **Select Primary Model** - Use the dropdown to choose your primary AI model
 2. **Add Fallbacks** - Click "Add Fallback" and select models from the dropdown
 3. **Reorder Fallbacks** - Drag to reorder fallback priority
 4. **Save** - Click Save button (creates backup before saving)
 5. **Reload** - Discard unsaved changes and reload from disk
+6. **Quit** - Exit the app
+
+The app reads and writes to `~/.openclaw/openclaw.json`.
 
 ## Config Structure
 
@@ -99,8 +105,9 @@ Models defined in your config's `models.providers` section are automatically dis
 
 ```
 OpenClawConfigManager/
-├── OpenClawConfigManagerApp.swift    # App entry point
-├── ContentView.swift                  # Main UI
+├── OpenClawConfigManagerApp.swift    # MenuBarExtra app entry point
+├── ContentView.swift                  # Main UI (480x640 popover)
+├── Assets.xcassets/                   # Lobster icon assets
 ├── Config/
 │   ├── JSONValue.swift               # JSON5 parsing
 │   ├── ConfigDocument.swift          # Config document wrapper

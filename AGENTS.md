@@ -111,6 +111,27 @@ let data = try encoder.encode(root)
 
 ## SwiftUI/macOS Patterns
 
+### MenuBar App (MenuBarExtra)
+```swift
+@main
+struct App: App {
+    var body: some Scene {
+        MenuBarExtra {
+            ContentView()
+        } label: {
+            Image("IconName")
+                .renderingMode(.template)
+        }
+        .menuBarExtraStyle(.window)
+    }
+}
+```
+
+Key settings for MenuBar apps:
+- `Info.plist`: Add `LSUIElement = true` to hide Dock icon
+- Icon sizes: 18x18 @1x, 36x36 @2x, 54x54 @3x (template images)
+- Window size: Set via `.frame(width:height:)` on ContentView
+
 ### JSON5 Decoding (macOS 14+)
 ```swift
 let decoder = JSONDecoder()
