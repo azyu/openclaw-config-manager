@@ -6,33 +6,50 @@ struct ContentView: View {
     var body: some View {
         Form {
             Section {
-                HStack {
-                    Button {
-                        viewModel.reload()
-                    } label: {
-                        Label("Reload", systemImage: "arrow.clockwise")
+                VStack(spacing: 8) {
+                    HStack {
+                        Text("OpenClaw Config Manager")
+                            .font(.headline)
+                        Spacer()
+                        Button {
+                            if let url = URL(string: "https://openclaw.ai") {
+                                NSWorkspace.shared.open(url)
+                            }
+                        } label: {
+                            Image(systemName: "info.circle")
+                        }
+                        .buttonStyle(.plain)
+                        .help("Visit OpenClaw website")
                     }
-                    .help("Discard unsaved changes and reload from disk")
-                    .accessibilityIdentifier("reloadButton")
                     
-                    Spacer()
-                    
-                    Button {
-                        viewModel.save()
-                    } label: {
-                        Label("Save", systemImage: "square.and.arrow.down")
-                    }
-                    .help("Save changes to config file (creates backup)")
-                    .disabled(viewModel.selectedPrimary.isEmpty)
-                    .buttonStyle(.borderedProminent)
-                    .accessibilityIdentifier("saveButton")
-                    
-                    Spacer()
-                    
-                    Button(role: .destructive) {
-                        NSApplication.shared.terminate(nil)
-                    } label: {
-                        Label("Quit", systemImage: "power")
+                    HStack {
+                        Button {
+                            viewModel.reload()
+                        } label: {
+                            Label("Reload", systemImage: "arrow.clockwise")
+                        }
+                        .help("Discard unsaved changes and reload from disk")
+                        .accessibilityIdentifier("reloadButton")
+                        
+                        Spacer()
+                        
+                        Button {
+                            viewModel.save()
+                        } label: {
+                            Label("Save", systemImage: "square.and.arrow.down")
+                        }
+                        .help("Save changes to config file (creates backup)")
+                        .disabled(viewModel.selectedPrimary.isEmpty)
+                        .buttonStyle(.borderedProminent)
+                        .accessibilityIdentifier("saveButton")
+                        
+                        Spacer()
+                        
+                        Button(role: .destructive) {
+                            NSApplication.shared.terminate(nil)
+                        } label: {
+                            Label("Quit", systemImage: "power")
+                        }
                     }
                 }
             }
@@ -93,26 +110,30 @@ struct ContentView: View {
                             .foregroundStyle(.secondary)
                     }
                     
-                    Divider()
-                    
                     HStack {
                         Image(systemName: "circle.fill")
                             .foregroundStyle(viewModel.isDirty ? .orange : .green)
                             .font(.system(size: 8))
                         Text("Config File")
                         Spacer()
-                        Text(ConfigFileManager.configURL.path)
-                            .font(.caption)
-                            .foregroundStyle(.secondary)
-                            .textSelection(.enabled)
+                        Button {
+                            NSWorkspace.shared.open(ConfigFileManager.configURL)
+                        } label: {
+                            Text(ConfigFileManager.configURL.path)
+                                .font(.caption)
+                                .foregroundStyle(.secondary)
+                        }
+                        .buttonStyle(.plain)
+                        .help("Open config file")
                     }
                     
-                    Divider()
-                    
                     if let lastUpdated = viewModel.lastUpdated {
-                        Text("last updated: \(lastUpdated.formatted(date: .omitted, time: .shortened))")
-                            .font(.caption2)
-                            .foregroundStyle(.tertiary)
+                        HStack {
+                            Spacer()
+                            Text("last updated: \(lastUpdated.formatted(date: .omitted, time: .shortened))")
+                                .font(.caption2)
+                                .foregroundStyle(.tertiary)
+                        }
                     }
                 }
             }

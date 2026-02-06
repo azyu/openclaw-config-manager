@@ -23,10 +23,6 @@ enum ConfigFileManager {
         return try ConfigDocument.load(from: fileURL)
     }
 
-    /// Save config atomically with backup
-    /// - Creates ~/.openclaw/ directory if needed
-    /// - Creates timestamped backup before overwriting
-    /// - Writes to temp file, then atomic move
     static func save(_ document: ConfigDocument) throws {
         let fileURL = configURL
         let directoryURL = fileURL.deletingLastPathComponent()
@@ -41,14 +37,23 @@ enum ConfigFileManager {
             _ = try createBackup()
         }
 
-        let encoder = JSONEncoder()
-        encoder.outputFormatting = [.prettyPrinted, .sortedKeys]
-        let data = try encoder.encode(document.root)
+        let outputData: Data
+        
+        if let rawText = document.rawText {
+            let (selection, _) = ConfigModelAccess.readModelSelection(from: document.root)
+            var patched = try JSON5TextPatcher.patchPrimary(in: rawText, newValue: selection.primary)
+            patched = try JSON5TextPatcher.patchFallbacks(in: patched, newValues: selection.fallbacks)
+            outputData = patched.data(using: .utf8) ?? Data()
+        } else {
+            let encoder = JSONEncoder()
+            encoder.outputFormatting = [.prettyPrinted, .sortedKeys]
+            outputData = try encoder.encode(document.root)
+        }
 
         let tempURL = directoryURL.appendingPathComponent(
             "\(fileURL.lastPathComponent).tmp-\(UUID().uuidString)"
         )
-        try data.write(to: tempURL)
+        try outputData.write(to: tempURL)
 
         if fileManager.fileExists(atPath: fileURL.path) {
             _ = try fileManager.replaceItemAt(fileURL, withItemAt: tempURL)
