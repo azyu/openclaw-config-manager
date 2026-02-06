@@ -29,14 +29,14 @@ final class JSON5TextPatcherTests: XCTestCase {
         XCTAssertFalse(result.contains("gemini-3-pro-high"))
     }
     
-    func testPatchFallbacks_preservesFormat() throws {
+    func testPatchFallbacks_usesDoubleQuotes() throws {
         let result = try JSON5TextPatcher.patchFallbacks(
             in: sampleJSON5,
             newValues: ["openai/gpt-5", "google/gemini-2.5-pro"]
         )
         
-        XCTAssertTrue(result.contains("'openai/gpt-5'"))
-        XCTAssertTrue(result.contains("'google/gemini-2.5-pro'"))
+        XCTAssertTrue(result.contains("\"openai/gpt-5\""))
+        XCTAssertTrue(result.contains("\"google/gemini-2.5-pro\""))
         XCTAssertFalse(result.contains("claude-sonnet-4-5"))
     }
     
@@ -51,8 +51,8 @@ final class JSON5TextPatcherTests: XCTestCase {
         )
         
         XCTAssertTrue(result.contains("primary: 'new/primary-model'"))
-        XCTAssertTrue(result.contains("'fallback/one'"))
-        XCTAssertTrue(result.contains("'fallback/two'"))
+        XCTAssertTrue(result.contains("\"fallback/one\""))
+        XCTAssertTrue(result.contains("\"fallback/two\""))
         XCTAssertTrue(result.contains("agents:"))
         XCTAssertTrue(result.contains("defaults:"))
     }

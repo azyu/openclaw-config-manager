@@ -77,9 +77,15 @@ enum ConfigFileManager {
         formatter.dateFormat = "yyyyMMdd-HHmmss"
         let timestamp = formatter.string(from: Date())
 
-        let backupName = "\(fileURL.lastPathComponent).bak-\(timestamp)"
-        let backupURL = fileURL.deletingLastPathComponent()
+        var backupName = "\(fileURL.lastPathComponent).bak-\(timestamp)"
+        var backupURL = fileURL.deletingLastPathComponent()
             .appendingPathComponent(backupName)
+
+        if fileManager.fileExists(atPath: backupURL.path) {
+            backupName = "\(fileURL.lastPathComponent).bak-\(timestamp)-\(UUID().uuidString.prefix(8))"
+            backupURL = fileURL.deletingLastPathComponent()
+                .appendingPathComponent(backupName)
+        }
 
         try fileManager.copyItem(at: fileURL, to: backupURL)
         return backupURL

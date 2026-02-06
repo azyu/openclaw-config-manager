@@ -190,13 +190,12 @@ enum JSON5TextPatcher {
     }
     
     private static func replaceArray(in text: String, span: ValueSpan, with newValues: [String]) -> String {
-        let oldArray = String(text[span.range])
         let indent = detectArrayIndent(in: text, arrayStart: span.range.lowerBound)
         let itemIndent = indent + "  "
         
         var lines = ["["]
         for value in newValues {
-            lines.append("\(itemIndent)'\(value)',")
+            lines.append("\(itemIndent)\"\(value)\",")
         }
         lines.append("\(indent)]")
         
