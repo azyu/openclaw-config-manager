@@ -3,20 +3,12 @@ import SwiftUI
 @main
 struct OpenClawConfigManagerApp: App {
     var body: some Scene {
-        WindowGroup("OpenClaw Config Manager") {
+        MenuBarExtra {
             ContentView()
+        } label: {
+            Image("LobsterIcon")
+                .renderingMode(.template)
         }
-        .windowStyle(.automatic)
-        .defaultSize(width: 500, height: 450)
-        .windowResizability(.contentSize)
-        .commands {
-            CommandGroup(replacing: .appInfo) {
-                Button("About OpenClaw Config Manager") {
-                    NSApplication.shared.orderFrontStandardAboutPanel(
-                        options: [NSApplication.AboutPanelOptionKey.init(rawValue: "Copyright"): "© 2026 OpenClaw Team"]
-                    )
-                }
-            }
-        }
+        .menuBarExtraStyle(.window)
     }
 }

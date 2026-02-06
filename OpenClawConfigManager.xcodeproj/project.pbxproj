@@ -28,6 +28,7 @@
 		B59B8D50863F4436B1F0A877 /* ModelSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32383E6A6A948A2A60DF154 /* ModelSelection.swift */; };
 		B600B1756DE74CC288F0095E /* ConfigViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94B592EF90A45AABC9F828B /* ConfigViewModel.swift */; };
 		T659E906AD5C4231AEFA8A1C /* ConfigViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF34CC8A173F471A82B28E8F /* ConfigViewModelTests.swift */; };
+		BASSETS01 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FASSETS01 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +75,7 @@
 		F32383E6A6A948A2A60DF154 /* ModelSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Models/ModelSelection.swift"; sourceTree = "<group>"; };
 		F94B592EF90A45AABC9F828B /* ConfigViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewModels/ConfigViewModel.swift"; sourceTree = "<group>"; };
 		FF34CC8A173F471A82B28E8F /* ConfigViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConfigViewModelTests.swift"; sourceTree = "<group>"; };
+		FASSETS01 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				G0000007 /* Config */,
+				FASSETS01 /* Assets.xcassets */,
 				F0000001 /* OpenClawConfigManagerApp.swift */,
 				F0000002 /* ContentView.swift */,
 				F0000003 /* Info.plist */,
@@ -286,6 +289,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BASSETS01 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

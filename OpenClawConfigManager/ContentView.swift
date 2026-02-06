@@ -5,22 +5,38 @@ struct ContentView: View {
     
     var body: some View {
         Form {
-            // Header with config path
             Section {
-                VStack(alignment: .leading, spacing: 4) {
-                    LabeledContent("Editing") {
-                        Text(ConfigFileManager.configURL.path)
-                            .font(.caption)
-                            .foregroundStyle(.secondary)
-                            .help("This is the location of your OpenClaw configuration file.")
+                HStack {
+                    Button {
+                        viewModel.reload()
+                    } label: {
+                        Label("Reload", systemImage: "arrow.clockwise")
                     }
-                    Text("Backups are created before each save")
-                        .font(.caption2)
-                        .foregroundStyle(.tertiary)
+                    .help("Discard unsaved changes and reload from disk")
+                    .accessibilityIdentifier("reloadButton")
+                    
+                    Spacer()
+                    
+                    Button {
+                        viewModel.save()
+                    } label: {
+                        Label("Save", systemImage: "square.and.arrow.down")
+                    }
+                    .help("Save changes to config file (creates backup)")
+                    .disabled(viewModel.selectedPrimary.isEmpty)
+                    .buttonStyle(.borderedProminent)
+                    .accessibilityIdentifier("saveButton")
+                    
+                    Spacer()
+                    
+                    Button(role: .destructive) {
+                        NSApplication.shared.terminate(nil)
+                    } label: {
+                        Label("Quit", systemImage: "power")
+                    }
                 }
             }
             
-            // Primary Model Section
             Section("Primary Model") {
                 Picker("Model", selection: $viewModel.selectedPrimary) {
                     Text("Select a model...").tag("")
@@ -39,7 +55,6 @@ struct ContentView: View {
                 .onChange(of: viewModel.selectedPrimary) { viewModel.updateDirtyState() }
             }
             
-            // Fallback Models Section
             Section("Fallback Models") {
                 if viewModel.selectedFallbacks.isEmpty {
                     Text("No fallback models configured")
@@ -66,58 +81,49 @@ struct ContentView: View {
                 .accessibilityIdentifier("addFallbackButton")
             }
             
-            // Status Section
-            Section {
-                VStack(alignment: .leading, spacing: 4) {
-                    HStack {
-                        if viewModel.isDirty {
-                            Image(systemName: "circle.fill")
-                                .foregroundStyle(.orange)
-                                .font(.caption)
-                            Text("Unsaved changes")
-                        } else {
-                            Image(systemName: "checkmark.circle.fill")
-                                .foregroundStyle(.green)
-                                .font(.caption)
-                            Text(viewModel.statusMessage)
-                        }
-                    }
-                    
-                    HStack {
-                        if let loadedAt = viewModel.loadedAt {
-                            Text("Loaded: \(loadedAt.formatted(date: .omitted, time: .shortened))")
-                        }
-                        Spacer()
-                        if let savedAt = viewModel.savedAt {
-                            Text("Saved: \(savedAt.formatted(date: .omitted, time: .shortened))")
-                        }
-                    }
-                    .font(.caption2)
-                    .foregroundStyle(.secondary)
+            Section("Editing") {
+                LabeledContent("File") {
+                    Text(ConfigFileManager.configURL.path)
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                        .textSelection(.enabled)
                 }
-                .accessibilityIdentifier("statusLabel")
+                Text("Backups are created before each save")
+                    .font(.caption2)
+                    .foregroundStyle(.tertiary)
             }
+            
+            Section("Status") {
+                HStack {
+                    if viewModel.isDirty {
+                        Image(systemName: "circle.fill")
+                            .foregroundStyle(.orange)
+                            .font(.caption)
+                        Text("Unsaved changes")
+                    } else {
+                        Image(systemName: "checkmark.circle.fill")
+                            .foregroundStyle(.green)
+                            .font(.caption)
+                        Text(viewModel.statusMessage)
+                    }
+                }
+                
+                HStack {
+                    if let loadedAt = viewModel.loadedAt {
+                        Text("Loaded: \(loadedAt.formatted(date: .omitted, time: .shortened))")
+                    }
+                    Spacer()
+                    if let savedAt = viewModel.savedAt {
+                        Text("Saved: \(savedAt.formatted(date: .omitted, time: .shortened))")
+                    }
+                }
+                .font(.caption2)
+                .foregroundStyle(.secondary)
+            }
+            .accessibilityIdentifier("statusLabel")
         }
         .formStyle(.grouped)
-        .frame(minWidth: 400, minHeight: 350)
-        .toolbar {
-            ToolbarItemGroup {
-                Button {
-                    viewModel.reload()
-                } label: {
-                    Label("Reload", systemImage: "arrow.clockwise")
-                }
-                .accessibilityIdentifier("reloadButton")
-                
-                Button {
-                    viewModel.save()
-                } label: {
-                    Label("Save", systemImage: "square.and.arrow.down")
-                }
-                .disabled(viewModel.selectedPrimary.isEmpty)
-                .accessibilityIdentifier("saveButton")
-            }
-        }
+        .frame(width: 420, height: 640)
         .alert("Error", isPresented: Binding(
             get: { viewModel.lastError != nil },
             set: { if !$0 { viewModel.lastError = nil } }
@@ -137,6 +143,12 @@ struct ContentView: View {
             }
         } message: {
             Text("The configuration file has been modified by another process. Do you want to overwrite it?")
+        }
+        .onAppear {
+            // Ensure config is loaded when popover appears
+            if viewModel.selectedPrimary.isEmpty && viewModel.lastError == nil {
+                viewModel.reload()
+            }
         }
     }
 }

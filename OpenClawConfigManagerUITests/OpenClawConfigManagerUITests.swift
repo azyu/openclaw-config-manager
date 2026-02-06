@@ -18,7 +18,29 @@ final class OpenClawConfigManagerUITests: XCTestCase {
     }
 
     override func tearDownWithError() throws {
+        app.terminate()
         try? FileManager.default.removeItem(at: tempDir)
+    }
+    
+    func openMenuBarPopover() {
+        app.launch()
+        // For MenuBarExtra with .window style, the popover should appear automatically
+        // but we need to give it time to render. If elements aren't found, 
+        // try clicking the status item in the system menu bar.
+        sleep(1)
+        
+        // Check if popover is already visible
+        if app.popUpButtons["primaryModelPicker"].waitForExistence(timeout: 2) {
+            return
+        }
+        
+        // Try clicking the menu bar status item to open popover
+        let systemMenuBar = XCUIApplication(bundleIdentifier: "com.apple.controlcenter").menuBars.firstMatch
+        let statusItem = systemMenuBar.statusItems["gearshape.2"]
+        if statusItem.waitForExistence(timeout: 3) {
+            statusItem.click()
+            sleep(1)
+        }
     }
 
     func testLoadExistingConfigAndDisplayModels() throws {
