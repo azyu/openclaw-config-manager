@@ -2,6 +2,8 @@
 
 macOS MenuBar app for managing OpenClaw AI model configuration.
 
+<img width="526" height="686" alt="스크린샷 2026-02-06 오후 6 10 42" src="https://github.com/user-attachments/assets/1434e1d3-eddd-497e-bb06-3ad6ee9f9b17" />
+
 ## Features
 
 - **MenuBar App** - Lives in the menu bar with a lobster icon 🦞
