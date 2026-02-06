@@ -1,0 +1,16 @@
+{
+  // Fixture to ensure unrelated keys remain after save
+  agents: {
+    defaults: {
+      workspace: "~/workspace",
+      model: {
+        primary: "anthropic/claude-3-5-sonnet-20241022",
+        fallbacks: ["openai/gpt-4o"],
+      },
+      timeoutSeconds: 30,
+    },
+    extra: { keep: true },
+  },
+  gateway: { port: 18789 },
+  analytics: { enabled: true, sampleRate: 0.25 },
+}

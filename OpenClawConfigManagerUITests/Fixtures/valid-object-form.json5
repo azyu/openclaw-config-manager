@@ -1,0 +1,13 @@
+{
+  // Test config with object-form model
+  agents: {
+    defaults: {
+      workspace: "~/workspace",
+      model: {
+        primary: "anthropic/claude-sonnet-4-20250514",
+        fallbacks: ["openai/gpt-4o"],
+      },
+    },
+  },
+  gateway: { port: 18789 },
+}

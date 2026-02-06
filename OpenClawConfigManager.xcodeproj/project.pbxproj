@@ -1,0 +1,589 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B0000001 /* OpenClawConfigManagerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0000001 /* OpenClawConfigManagerApp.swift */; };
+		B0000002 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0000002 /* ContentView.swift */; };
+		B0000005 /* OpenClawConfigManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0000005 /* OpenClawConfigManagerTests.swift */; };
+		B0000006 /* OpenClawConfigManagerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0000006 /* OpenClawConfigManagerUITests.swift */; };
+		B000000C /* ModelSelectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F000000C /* ModelSelectionTests.swift */; };
+		B000000E /* ConfigDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = F000000E /* ConfigDocument.swift */; };
+		B000000F /* JSONValueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F000000F /* JSONValueTests.swift */; };
+		B0000010 /* ConfigModelAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0000010 /* ConfigModelAccess.swift */; };
+		B0000011 /* ConfigModelAccessTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0000011 /* ConfigModelAccessTests.swift */; };
+		B0000012 /* ConfigFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0000012 /* ConfigFileManager.swift */; };
+		B0000013 /* ConfigFileManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0000013 /* ConfigFileManagerTests.swift */; };
+		B0000014 /* valid-object-form.json5 in Resources */ = {isa = PBXBuildFile; fileRef = F0000014 /* valid-object-form.json5 */; };
+		B0000015 /* valid-string-form.json5 in Resources */ = {isa = PBXBuildFile; fileRef = F0000015 /* valid-string-form.json5 */; };
+		B0000016 /* invalid.json5 in Resources */ = {isa = PBXBuildFile; fileRef = F0000016 /* invalid.json5 */; };
+		B0000017 /* with-unrelated-keys.json5 in Resources */ = {isa = PBXBuildFile; fileRef = F0000017 /* with-unrelated-keys.json5 */; };
+		BA81ABDE8E274D04AB546868 /* JSONValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B74F55C3734B84A8908A11 /* JSONValue.swift */; };
+		BEA6ACDF8BDE4D0DBC5E7F08 /* ModelInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FE24F7E7534830B740FF8F /* ModelInfo.swift */; };
+		B03E916CEABD4598A9B076DB /* ModelCatalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1D2C74A31D4C50B8EAEA0F /* ModelCatalog.swift */; };
+		B59B8D50863F4436B1F0A877 /* ModelSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32383E6A6A948A2A60DF154 /* ModelSelection.swift */; };
+		B600B1756DE74CC288F0095E /* ConfigViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94B592EF90A45AABC9F828B /* ConfigViewModel.swift */; };
+		T659E906AD5C4231AEFA8A1C /* ConfigViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF34CC8A173F471A82B28E8F /* ConfigViewModelTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		X0000001 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = PROJECTID /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = T0000001;
+			remoteInfo = OpenClawConfigManager;
+		};
+		X0000002 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = PROJECTID /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = T0000001;
+			remoteInfo = OpenClawConfigManager;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		F0000001 /* OpenClawConfigManagerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenClawConfigManagerApp.swift; sourceTree = "<group>"; };
+		F0000002 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		F0000003 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F0000004 /* OpenClawConfigManager.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OpenClawConfigManager.entitlements; sourceTree = "<group>"; };
+		F0000005 /* OpenClawConfigManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenClawConfigManagerTests.swift; sourceTree = "<group>"; };
+		F0000006 /* OpenClawConfigManagerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenClawConfigManagerUITests.swift; sourceTree = "<group>"; };
+		F0000007 /* OpenClawConfigManager.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = OpenClawConfigManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F0000008 /* OpenClawConfigManagerTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = OpenClawConfigManagerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F0000009 /* OpenClawConfigManagerUITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = OpenClawConfigManagerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F000000C /* ModelSelectionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelSelectionTests.swift; sourceTree = "<group>"; };
+		F000000E /* ConfigDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigDocument.swift; sourceTree = "<group>"; };
+		F000000F /* JSONValueTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONValueTests.swift; sourceTree = "<group>"; };
+		F0000010 /* ConfigModelAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigModelAccess.swift; sourceTree = "<group>"; };
+		F0000011 /* ConfigModelAccessTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigModelAccessTests.swift; sourceTree = "<group>"; };
+		F0000012 /* ConfigFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigFileManager.swift; sourceTree = "<group>"; };
+		F0000013 /* ConfigFileManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigFileManagerTests.swift; sourceTree = "<group>"; };
+		F0000014 /* valid-object-form.json5 */ = {isa = PBXFileReference; lastKnownFileType = text; path = "valid-object-form.json5"; sourceTree = "<group>"; };
+		F0000015 /* valid-string-form.json5 */ = {isa = PBXFileReference; lastKnownFileType = text; path = "valid-string-form.json5"; sourceTree = "<group>"; };
+		F0000016 /* invalid.json5 */ = {isa = PBXFileReference; lastKnownFileType = text; path = "invalid.json5"; sourceTree = "<group>"; };
+		F0000017 /* with-unrelated-keys.json5 */ = {isa = PBXFileReference; lastKnownFileType = text; path = "with-unrelated-keys.json5"; sourceTree = "<group>"; };
+		F4B74F55C3734B84A8908A11 /* JSONValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Models/JSONValue.swift"; sourceTree = "<group>"; };
+		F2FE24F7E7534830B740FF8F /* ModelInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Models/ModelInfo.swift"; sourceTree = "<group>"; };
+		FD1D2C74A31D4C50B8EAEA0F /* ModelCatalog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Models/ModelCatalog.swift"; sourceTree = "<group>"; };
+		F32383E6A6A948A2A60DF154 /* ModelSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Models/ModelSelection.swift"; sourceTree = "<group>"; };
+		F94B592EF90A45AABC9F828B /* ConfigViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewModels/ConfigViewModel.swift"; sourceTree = "<group>"; };
+		FF34CC8A173F471A82B28E8F /* ConfigViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConfigViewModelTests.swift"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		P0000002 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		P0000005 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		P0000008 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		G0000001 = {
+			isa = PBXGroup;
+			children = (
+				G0000003 /* OpenClawConfigManager */,
+				G0000004 /* OpenClawConfigManagerTests */,
+				G0000005 /* OpenClawConfigManagerUITests */,
+				G0000002 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		G0000002 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F0000007 /* OpenClawConfigManager.app */,
+				F0000008 /* OpenClawConfigManagerTests.xctest */,
+				F0000009 /* OpenClawConfigManagerUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		G0000003 /* OpenClawConfigManager */ = {
+			isa = PBXGroup;
+			children = (
+				G0000007 /* Config */,
+				F0000001 /* OpenClawConfigManagerApp.swift */,
+				F0000002 /* ContentView.swift */,
+				F0000003 /* Info.plist */,
+				F0000004 /* OpenClawConfigManager.entitlements */,
+			
+				F4B74F55C3734B84A8908A11 /* JSONValue.swift */,
+				F2FE24F7E7534830B740FF8F /* ModelInfo.swift */,
+				FD1D2C74A31D4C50B8EAEA0F /* ModelCatalog.swift */,
+				F32383E6A6A948A2A60DF154 /* ModelSelection.swift */,
+				F94B592EF90A45AABC9F828B /* ConfigViewModel.swift */,
+);
+			path = OpenClawConfigManager;
+			sourceTree = "<group>";
+		};
+		G0000004 /* OpenClawConfigManagerTests */ = {
+			isa = PBXGroup;
+			children = (
+				F0000011 /* ConfigModelAccessTests.swift */,
+				F000000C /* ModelSelectionTests.swift */,
+				F000000F /* JSONValueTests.swift */,
+				F0000013 /* ConfigFileManagerTests.swift */,
+				F0000005 /* OpenClawConfigManagerTests.swift */,
+			
+				FF34CC8A173F471A82B28E8F /* ConfigViewModelTests.swift */,
+);
+			path = OpenClawConfigManagerTests;
+			sourceTree = "<group>";
+		};
+		G0000005 /* OpenClawConfigManagerUITests */ = {
+			isa = PBXGroup;
+			children = (
+				G0000008 /* Fixtures */,
+				F0000006 /* OpenClawConfigManagerUITests.swift */,
+			);
+			path = OpenClawConfigManagerUITests;
+			sourceTree = "<group>";
+		};
+		G0000008 /* Fixtures */ = {
+			isa = PBXGroup;
+			children = (
+				F0000014 /* valid-object-form.json5 */,
+				F0000015 /* valid-string-form.json5 */,
+				F0000016 /* invalid.json5 */,
+				F0000017 /* with-unrelated-keys.json5 */,
+			);
+			path = Fixtures;
+			sourceTree = "<group>";
+		};
+		G0000007 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				F0000010 /* ConfigModelAccess.swift */,
+				F000000E /* ConfigDocument.swift */,
+				F0000012 /* ConfigFileManager.swift */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		T0000001 /* OpenClawConfigManager */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C0000002 /* Build configuration list for PBXNativeTarget "OpenClawConfigManager" */;
+			buildPhases = (
+				P0000001 /* Sources */,
+				P0000002 /* Frameworks */,
+				P0000003 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OpenClawConfigManager;
+			productName = OpenClawConfigManager;
+			productReference = F0000007 /* OpenClawConfigManager.app */;
+			productType = "com.apple.product-type.application";
+		};
+		T0000002 /* OpenClawConfigManagerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C0000003 /* Build configuration list for PBXNativeTarget "OpenClawConfigManagerTests" */;
+			buildPhases = (
+				P0000004 /* Sources */,
+				P0000005 /* Frameworks */,
+				P0000006 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D0000001 /* PBXTargetDependency */,
+			);
+			name = OpenClawConfigManagerTests;
+			productName = OpenClawConfigManagerTests;
+			productReference = F0000008 /* OpenClawConfigManagerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		T0000003 /* OpenClawConfigManagerUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C0000004 /* Build configuration list for PBXNativeTarget "OpenClawConfigManagerUITests" */;
+			buildPhases = (
+				P0000007 /* Sources */,
+				P0000008 /* Frameworks */,
+				P0000009 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D0000002 /* PBXTargetDependency */,
+			);
+			name = OpenClawConfigManagerUITests;
+			productName = OpenClawConfigManagerUITests;
+			productReference = F0000009 /* OpenClawConfigManagerUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		PROJECTID /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					T0000001 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+					T0000002 = {
+						CreatedOnToolsVersion = 15.0;
+						TestTargetID = T0000001;
+					};
+					T0000003 = {
+						CreatedOnToolsVersion = 15.0;
+						TestTargetID = T0000001;
+					};
+				};
+			};
+			buildConfigurationList = C0000001 /* Build configuration list for PBXProject "OpenClawConfigManager" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = G0000001;
+			productRefGroup = G0000002 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				T0000001 /* OpenClawConfigManager */,
+				T0000002 /* OpenClawConfigManagerTests */,
+				T0000003 /* OpenClawConfigManagerUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		P0000003 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		P0000006 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		P0000009 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B0000014 /* valid-object-form.json5 in Resources */,
+				B0000015 /* valid-string-form.json5 in Resources */,
+				B0000016 /* invalid.json5 in Resources */,
+				B0000017 /* with-unrelated-keys.json5 in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		P0000001 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B0000001 /* OpenClawConfigManagerApp.swift in Sources */,
+				B0000002 /* ContentView.swift in Sources */,
+				B0000010 /* ConfigModelAccess.swift in Sources */,
+				B000000E /* ConfigDocument.swift in Sources */,
+				B0000012 /* ConfigFileManager.swift in Sources */,
+				BA81ABDE8E274D04AB546868 /* JSONValue.swift in Sources */,
+				BEA6ACDF8BDE4D0DBC5E7F08 /* ModelInfo.swift in Sources */,
+				B03E916CEABD4598A9B076DB /* ModelCatalog.swift in Sources */,
+				B59B8D50863F4436B1F0A877 /* ModelSelection.swift in Sources */,
+				B600B1756DE74CC288F0095E /* ConfigViewModel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		P0000004 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B0000011 /* ConfigModelAccessTests.swift in Sources */,
+				B000000C /* ModelSelectionTests.swift in Sources */,
+				B000000F /* JSONValueTests.swift in Sources */,
+				B0000013 /* ConfigFileManagerTests.swift in Sources */,
+				B0000005 /* OpenClawConfigManagerTests.swift in Sources */,
+				T659E906AD5C4231AEFA8A1C /* ConfigViewModelTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		P0000007 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B0000006 /* OpenClawConfigManagerUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D0000001 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = T0000001 /* OpenClawConfigManager */;
+			targetProxy = X0000001 /* PBXContainerItemProxy */;
+		};
+		D0000002 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = T0000001 /* OpenClawConfigManager */;
+			targetProxy = X0000002 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		CONF0001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		CONF0002 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		CONF0003 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = OpenClawConfigManager/OpenClawConfigManager.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = OpenClawConfigManager/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.antigravity.OpenClawConfigManager;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		CONF0004 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = OpenClawConfigManager/OpenClawConfigManager.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = OpenClawConfigManager/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.antigravity.OpenClawConfigManager;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		CONF0005 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				GENERATE_INFOPLIST_FILE = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.antigravity.OpenClawConfigManagerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OpenClawConfigManager.app/Contents/MacOS/OpenClawConfigManager";
+			};
+			name = Debug;
+		};
+		CONF0006 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				GENERATE_INFOPLIST_FILE = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.antigravity.OpenClawConfigManagerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OpenClawConfigManager.app/Contents/MacOS/OpenClawConfigManager";
+			};
+			name = Release;
+		};
+		CONF0007 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				GENERATE_INFOPLIST_FILE = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.antigravity.OpenClawConfigManagerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = OpenClawConfigManager;
+			};
+			name = Debug;
+		};
+		CONF0008 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				GENERATE_INFOPLIST_FILE = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.antigravity.OpenClawConfigManagerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = OpenClawConfigManager;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C0000001 /* Build configuration list for PBXProject "OpenClawConfigManager" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CONF0001 /* Debug */,
+				CONF0002 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C0000002 /* Build configuration list for PBXNativeTarget "OpenClawConfigManager" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CONF0003 /* Debug */,
+				CONF0004 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C0000003 /* Build configuration list for PBXNativeTarget "OpenClawConfigManagerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CONF0005 /* Debug */,
+				CONF0006 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C0000004 /* Build configuration list for PBXNativeTarget "OpenClawConfigManagerUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CONF0007 /* Debug */,
+				CONF0008 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = PROJECTID /* Project object */;
+}
