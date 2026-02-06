@@ -19,6 +19,12 @@ final class ConfigViewModel {
     var loadedAt: Date?
     var savedAt: Date?
     var configFileModificationDate: Date?
+    var lastUpdated: Date?
+    
+    // Gateway Status
+    var gatewayOnline: Bool = false
+    var gatewayLastChecked: Date?
+    private var gatewayCheckTask: Task<Void, Never>?
     
     // Internal
     private var document: ConfigDocument = ConfigDocument()
@@ -26,6 +32,8 @@ final class ConfigViewModel {
     
     init() {
         load()
+        startGatewayHealthCheck()
+        lastUpdated = Date()
     }
     
     /// Load config from disk
@@ -56,8 +64,11 @@ final class ConfigViewModel {
         }
     }
     
-    /// Reload from disk, discarding unsaved changes
-    func reload() { load() }
+    func reload() {
+        load()
+        Task { await checkGatewayHealth() }
+        lastUpdated = Date()
+    }
     
     /// Save current selection to disk
     func save(force: Bool = false) {
@@ -118,5 +129,33 @@ final class ConfigViewModel {
     func moveFallback(from source: IndexSet, to destination: Int) {
         selectedFallbacks.move(fromOffsets: source, toOffset: destination)
         updateDirtyState()
+    }
+    
+    func startGatewayHealthCheck() {
+        gatewayCheckTask?.cancel()
+        gatewayCheckTask = Task {
+            while !Task.isCancelled {
+                await checkGatewayHealth()
+                try? await Task.sleep(for: .seconds(30))
+            }
+        }
+    }
+    
+    func checkGatewayHealth() async {
+        let url = URL(string: "http://127.0.0.1:18789/")!
+        var request = URLRequest(url: url)
+        request.timeoutInterval = 3
+        
+        do {
+            let (_, response) = try await URLSession.shared.data(for: request)
+            if let httpResponse = response as? HTTPURLResponse {
+                gatewayOnline = (200...299).contains(httpResponse.statusCode)
+            } else {
+                gatewayOnline = false
+            }
+        } catch {
+            gatewayOnline = false
+        }
+        gatewayLastChecked = Date()
     }
 }

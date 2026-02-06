@@ -81,44 +81,40 @@ struct ContentView: View {
                 .accessibilityIdentifier("addFallbackButton")
             }
             
-            Section("Editing") {
-                LabeledContent("File") {
-                    Text(ConfigFileManager.configURL.path)
-                        .font(.caption)
-                        .foregroundStyle(.secondary)
-                        .textSelection(.enabled)
-                }
-                Text("Backups are created before each save")
-                    .font(.caption2)
-                    .foregroundStyle(.tertiary)
-            }
-            
             Section("Status") {
-                HStack {
-                    if viewModel.isDirty {
+                VStack(alignment: .leading, spacing: 4) {
+                    HStack {
                         Image(systemName: "circle.fill")
-                            .foregroundStyle(.orange)
+                            .foregroundStyle(viewModel.gatewayOnline ? .green : .red)
+                            .font(.system(size: 8))
+                        Text("OpenClaw Gateway")
+                        Spacer()
+                        Text(viewModel.gatewayOnline ? "online" : "offline")
+                            .foregroundStyle(.secondary)
+                    }
+                    
+                    Divider()
+                    
+                    HStack {
+                        Image(systemName: "circle.fill")
+                            .foregroundStyle(viewModel.isDirty ? .orange : .green)
+                            .font(.system(size: 8))
+                        Text("Config File")
+                        Spacer()
+                        Text(ConfigFileManager.configURL.path)
                             .font(.caption)
-                        Text("Unsaved changes")
-                    } else {
-                        Image(systemName: "checkmark.circle.fill")
-                            .foregroundStyle(.green)
-                            .font(.caption)
-                        Text(viewModel.statusMessage)
+                            .foregroundStyle(.secondary)
+                            .textSelection(.enabled)
+                    }
+                    
+                    Divider()
+                    
+                    if let lastUpdated = viewModel.lastUpdated {
+                        Text("last updated: \(lastUpdated.formatted(date: .omitted, time: .shortened))")
+                            .font(.caption2)
+                            .foregroundStyle(.tertiary)
                     }
                 }
-                
-                HStack {
-                    if let loadedAt = viewModel.loadedAt {
-                        Text("Loaded: \(loadedAt.formatted(date: .omitted, time: .shortened))")
-                    }
-                    Spacer()
-                    if let savedAt = viewModel.savedAt {
-                        Text("Saved: \(savedAt.formatted(date: .omitted, time: .shortened))")
-                    }
-                }
-                .font(.caption2)
-                .foregroundStyle(.secondary)
             }
             .accessibilityIdentifier("statusLabel")
         }
