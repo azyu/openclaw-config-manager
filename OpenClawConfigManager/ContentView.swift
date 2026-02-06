@@ -123,7 +123,7 @@ struct ContentView: View {
             .accessibilityIdentifier("statusLabel")
         }
         .formStyle(.grouped)
-        .frame(width: 420, height: 640)
+        .frame(width: 480, height: 640)
         .alert("Error", isPresented: Binding(
             get: { viewModel.lastError != nil },
             set: { if !$0 { viewModel.lastError = nil } }
